@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projecten</title>
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <h1>Projecten overzicht</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="profiel_overzicht_page.html" class="link_styling">profiel overzicht</a></li>
+            <li><a href="blog_overzicht_page.html" class="link_styling">blog overzicht</a></li>
+            <li><a href="../index.html" class="link_styling_home">home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Mijn Projecten</h2>
+        <article class="box">
+            <h3>Pokemon Console Game</h3>
+            <p>Deze Pokemon console game is iets waar ik 2 weken aan heb gewerkt.
+               Het is voor nu nog een simpele one-vs-one turned based game waarbij elke speler een pokemon 
+               kan kiezen uit een lijst. Je een pokemon uit deze lijst opzoeken op naam of je kunt de lijst 
+               filteren op pokemon type. Elke pokemon heeft een vast moveset, je kunt dus helaas nog niet voordat
+               de battle begint een aantal moves naar keuze kiezen. het battle systeem houdt, met behulp van functies, goed
+               in de gaten of moves niet effectief, effectief, super effectief of neutraal zijn tegen de pokemon van 
+               de tegenstander en past op basis daarvan de damage van jouw gekozen move aan met behulp van multipliers.
+               ook houd het system de HP van jouw Pokemon bij en geeft deze weer na elke turn.</p>
+            <p>Ik ben zeker van plan om deze game in de toekomst verder uit te breiden en er mischien zelfs een visueel 
+               game van te maken, omdat ik mijn game development vaardigheden naar een hoger niveau wil brengen.
+                Helaas kan ik het dan niet publishen (copyright) :(.</p>
+            <ul>
+                <li>Programmeer taal: <strong>C#</strong></li>
+                <li>Repository: <a href="https://github.com/T1tanX/PokemonConsoleGame.git">PokemonConsoleGame</a></li>
+            </ul>
+        </article>
+        
+        <article class="box">
+            <h3>Neural Network Modellen</h3>
+            <p>In dit project heb ik 3 neural network modellen gemaakt die elk lagen van neuronen gebruiken om 
+               complexe data stap voor stap te ontleden.</p>
+            <p>Het eerste model is een space shooter stijl game dat 
+               gespeeld wordt door een AI op basis van traindata die verzameld werd toen ik de game had gespeeld. Dit model 
+               gebruikt clustering om data te groeperen.</p>
+            <p>Het tweede model probeert zo accuraat mogelijk huisprijzen te voorspellen op basis van features 
+               uit een dataset. Vervolgens vergelijkt het model de voorspelde huis prijzen met de daadwerkelijke huis prijzen
+               uit de dataset om te bepalen hoe accuraat de voorspelde huisprijs is. Dit model maakt gebruik van
+               lineaire regressie.</p>
+            <p>Het derde model probeert wijnen uit 2 verschillende datasets in 2 groepen te plaatsen, rode wijn en 
+               witte wijn. Dit model gebruikt hiervoor net zo als het eerste model ook clustering.</p>
+            <ul>
+                <li>Programmeer taal: <strong>Python</strong></li>
+                <li>Repository: <a href="https://github.com/T1tanX/NeuralNetworkModels.git">NeuralNetworkModels</a></li>
+            </ul>
+        </article>
+        
+        <article class="box">
+            <h3>Datawarehouse</h3>
+            <p>Dit was een school project waarbij ik in een duo een datawarehouse moest bouwen. In dit project wordt data uit 5 
+               verschillende source databases genormaliseerd en ingeladen via een data pipeline in een source data model die je kunt openen 
+               in DB browser (SQlite). Daarna wordt de data vanuit het source data model gedenormaliseerd en ingeladen via een andere data pipeline 
+               in een datawarehouse die je ook kunt openen in DB browser (SQlite). De data in het datawarehouse is gereed voor 
+               analyse. Je kunt dus een platform zoals Power BI gebruiken om je data uit het datawarehouse te visualiseren in 
+               allerlei grafieken of schema's.</p>
+            <ul>
+                <li>Programmeer talen: <strong>Python, SQL</strong></li>
+                <li>Repository: <a href="https://github.com/Taigaverybig/DuoTariq-Hubert.git">Datawarehouse</a></li>
+            </ul>
+        </article>
+        
+        <article class="box">
+            <h3>Trainingsschema Generator</h3>
+            <p>Dit was een van de eerste individuele projecten die ik heb gemaakt. Het werkt erg simpel. 
+               Je vinkt eerst een aantal specificaties aan waar jouw trainingsschema op moet focussen. Nadat je 
+               klaar bent met dat, worden er een aantal willekeurige oefeningen gekozen die voldoen aan jouw 
+               specificaties en wordt het trainingsschema daarmee gebouwd. In de trainingsschema zie je bij elke 
+               oefeningen ook het aantal aangeraden reps en sets. Dit aantal past zich aan op basis van de moeilijkheidsgraad 
+               die je heb gekozen. Het leuke is dat elke trainingsschema anders is. je kunt dus wel 10 keer precies 
+                dezelfde specificaties invullen en volledig andere trainingsschema's krijgen, terwijl deze schema's 
+                nog steeds voldoen aan de gekozen specificaties.</p>
+            <ul>
+                <li>Programmeer talen: <strong>Java</strong></li>
+                <li>Repository: <a href="https://github.com/T1tanX/Trainingsschema-generator.git">TrainingsschemaGenerator</a></li>
+            </ul>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Tariq Toerab. Alle rechten voorbehouden.</p>
+    <p>Contact: <a href="mailto:24074209@student.hhs.nl">24074209@student.hhs.nl</a></p>
+</footer>
+</body>
+
+</html>
