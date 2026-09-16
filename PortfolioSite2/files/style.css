@@ -45,6 +45,13 @@ footer {
     box-shadow: 10px 10px 10px 1px #D5C9B3;
 }
 
+.box2 {
+    border-radius: 12px;
+    padding: 20px;
+    background-color: lightslategray;
+    box-shadow: 10px 10px 10px 1px #D5C9B3;
+}
+
 .profiel_page_box {
     width: 300px;          
     height: 250px;
@@ -108,10 +115,16 @@ footer {
     }
 
     .link_styling{
-        padding: 5px;
+        padding: 10px;
+        font-size: 20px;
     }
     
     .link_styling_home{
-        padding: 5px;
+        padding: 10px;
+        font-size: 20px;
+    }
+    
+    li {
+        margin-bottom: 10px;
     }
 }
