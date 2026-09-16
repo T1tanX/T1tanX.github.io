@@ -115,16 +115,16 @@ footer {
     }
 
     .link_styling{
-        padding: 10px;
+        padding: 20px;
         font-size: 20px;
     }
     
     .link_styling_home{
-        padding: 10px;
+        padding: 20px;
         font-size: 20px;
     }
     
     li {
-        margin-bottom: 10px;
+        margin-bottom: 25px;
     }
 }
