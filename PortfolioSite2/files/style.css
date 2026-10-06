@@ -103,6 +103,20 @@ footer {
     background-color: #5A3B31;
 }
 
+.filter-container{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.foutmelding {
+    color: red;
+    font-size: 14px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 32px;

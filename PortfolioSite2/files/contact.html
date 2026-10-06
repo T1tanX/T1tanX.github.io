@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Contact</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="profiel_overzicht_page.html" class="link_styling">profiel overzicht</a></li>
+            <li><a href="projecten_overzicht_page.html" class="link_styling">projecten overzicht</a></li>
+            <li><a href="blog_overzicht_page.html" class="link_styling">blog overzicht</a></li>
+            <li><a href="index.html" class="link_styling_home">home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>Neem contact op</h2>
+
+        <p id="succes-melding" style="display: none; color: green; font-weight: bold;">
+            Bedankt! Je bericht is verzonden.
+        </p>
+
+        <form id="contact-form" novalidate>
+            <div>
+                <label for="naam">Naam *</label><br>
+                <input type="text" id="naam" aria-describedby="naam-fout"><br>
+                <span id="naam-fout" class="foutmelding" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="email">E-mail *</label><br>
+                <input type="email" id="email" aria-describedby="email-fout"><br>
+                <span id="email-fout" class="foutmelding" aria-live="polite"></span>
+            </div>
+
+            <div>
+                <label for="bericht">Bericht *</label><br>
+                <textarea id="bericht" rows="4" aria-describedby="bericht-fout"></textarea><br>
+                <span id="bericht-fout" class="foutmelding" aria-live="polite"></span>
+            </div><br>
+
+            <button type="submit" class="link_styling_home">Versturen</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Tariq Toerab. Alle rechten voorbehouden.</p>
+</footer>
+
+<script src="contact.js" defer></script>
+</body>
+</html>
