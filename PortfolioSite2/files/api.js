@@ -1,5 +1,6 @@
 ﻿const factTekst = document.getElementById("fact-tekst");
 const factFout = document.getElementById("fact-fout");
+const refreshBtn = document.getElementById("refresh-fact-btn");
 
 function haalFeitjeOp() {
     factTekst.textContent = "Aan het laden...";
@@ -21,5 +22,6 @@ function haalFeitjeOp() {
             console.error("Fout bij ophalen feitje:", error);
         });
 }
+refreshBtn.addEventListener("click", haalFeitjeOp);
 
 haalFeitjeOp();
