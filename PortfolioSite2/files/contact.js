@@ -27,23 +27,31 @@ function checkValidity (value, valueFout, type){
 form.addEventListener("submit", function(event) {
     event.preventDefault(); 
 
-    const naam = document.getElementById("naam").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const bericht = document.getElementById("bericht").value.trim();
+    const naam = document.getElementById("naam")
+    const email = document.getElementById("email")
+    const bericht = document.getElementById("bericht")
 
     const naamFout = document.getElementById("naam-fout");
     const emailFout = document.getElementById("email-fout");
     const berichtFout = document.getElementById("bericht-fout");
     const succesMelding = document.getElementById("succes-melding");
     
+    let naamType = naam.id;
+    let emailType = email.id;
+    let berichtType = bericht.id;
+    
+    const naamText = naam.value.trim();
+    const berichtText = bericht.value.trim();
+    const emailText = email.value.trim();
+    
     naamFout.textContent = "";
     emailFout.textContent = "";
     berichtFout.textContent = "";
     succesMelding.style.display = "none";
     
-    const naamConfirm = checkValidity(naam, naamFout, "naam")
-    const emailConfirm = checkValidity(email, emailFout, "email")
-    const berichtConfirm = checkValidity(bericht, berichtFout, "bericht")
+    const naamConfirm = checkValidity(naamText, naamFout, naamType)
+    const emailConfirm = checkValidity(emailText, emailFout, emailType)
+    const berichtConfirm = checkValidity(berichtText, berichtFout, berichtType)
     
     if (naamConfirm && emailConfirm && berichtConfirm){
         succesMelding.style.display = "block";
