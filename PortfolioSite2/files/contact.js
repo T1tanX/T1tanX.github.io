@@ -1,5 +1,29 @@
 ﻿const form = document.getElementById("contact-form");
 
+function checkValidity (value, valueFout, type){
+    let confirm = true;
+    
+    switch (type){
+        case "naam":
+            if (value === "") {
+                valueFout.textContent = "Vul je naam in.";
+                confirm = false;
+            }
+            break;
+        case "email":
+            if (value === "" || !(value.includes("@") && value.endsWith(".com") && value === value.toLowerCase())) {
+                valueFout.textContent = "Vul een geldig e-mailadres in (@, .com, geen hoofdletters).";
+                confirm = false;
+            } 
+            break;
+        case "bericht":
+            if (value.length < 10) {
+                valueFout.textContent = "Het bericht moet minimaal 10 tekens lang zijn.";
+                confirm = false;
+            }
+    }
+    return confirm;
+}
 form.addEventListener("submit", function(event) {
     event.preventDefault(); 
 
@@ -16,25 +40,12 @@ form.addEventListener("submit", function(event) {
     emailFout.textContent = "";
     berichtFout.textContent = "";
     succesMelding.style.display = "none";
-
-    let isGeldig = true;
-
-    if (naam === "") {
-        naamFout.textContent = "Vul je naam in.";
-        isGeldig = false;
-    }
-
-    if (email === "" || !email.includes("@")) {
-        emailFout.textContent = "Vul een geldig e-mailadres in.";
-        isGeldig = false;
-    }
-
-    if (bericht.length < 10) {
-        berichtFout.textContent = "Het bericht moet minimaal 10 tekens lang zijn.";
-        isGeldig = false;
-    }
     
-    if (isGeldig) {
+    const naamConfirm = checkValidity(naam, naamFout, "naam")
+    const emailConfirm = checkValidity(email, emailFout, "email")
+    const berichtConfirm = checkValidity(bericht, berichtFout, "bericht")
+    
+    if (naamConfirm && emailConfirm && berichtConfirm){
         succesMelding.style.display = "block";
         form.reset();
     }
