@@ -3,6 +3,7 @@ const factFout = document.getElementById("fact-fout");
 const refreshBtn = document.getElementById("refresh-fact-btn");
 
 function haalFeitjeOp() {
+    factTekst.style.display = "block";
     factTekst.textContent = "Aan het laden...";
     factFout.style.display = "none";
     
@@ -23,5 +24,4 @@ function haalFeitjeOp() {
         });
 }
 refreshBtn.addEventListener("click", haalFeitjeOp);
-
 haalFeitjeOp();
