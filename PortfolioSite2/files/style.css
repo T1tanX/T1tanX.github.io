@@ -28,6 +28,9 @@ header {
     margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 section {
@@ -57,8 +60,9 @@ footer {
 }
 
 .profiel_page_box {
-    width: 300px;          
-    height: 250px;
+    flex: 1 1 280px;      
+    max-width: 350px;     
+    min-height: 220px;
     background-color: #F1EDE4;
     box-shadow: 10px 10px 10px #D5C9B3;
     box-sizing: border-box;
@@ -85,6 +89,19 @@ footer {
     padding: 10px;
     background-color: #F1EDE4;
     color: #8B3E2F;
+    position: relative;
+    display: inline-block;
+}
+
+.link_styling.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;        
+    left: 10px;          
+    right: 10px;        
+    height: 4px;         
+    background-color: #734F43; 
+    border-radius: 2px;
 }
 
 .link_styling_home{
@@ -93,6 +110,19 @@ footer {
     padding: 10px;
     background-color: #734F43;
     color: #F1EDE4;
+    position: relative;
+    display: inline-block;
+}
+
+.link_styling_home.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    right: 10px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
 }
 
 .link_styling:hover{
@@ -140,6 +170,15 @@ form div {
     .link_styling_home{
         padding: 20px;
         font-size: 20px;
+    }
+
+    .link_styling.active::after, .link_styling_home.active::after{
+        bottom: 0;
+        top: 0;
+        left: 0;            
+        right: auto;
+        width: 4px;          
+        height: 100%;        
     }
     
     li {
