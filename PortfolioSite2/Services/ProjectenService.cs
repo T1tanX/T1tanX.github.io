@@ -75,8 +75,10 @@ public class ProjectenService {
     }
 
     public async Task<bool> DeleteP(int id) {
-        var project = await _context.Projects.FindAsync(id);
-        if (project == null) return false;
+        var project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == id);
+        if (project == null) {
+            return false;
+        }
 
         _context.Projects.Remove(project);
         await _context.SaveChangesAsync();
