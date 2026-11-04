@@ -1,30 +1,39 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 class Program {
     static void Main(string[] args) {
-        // 1. Initialiseer de WebApplication builder
         var builder = WebApplication.CreateBuilder(args);
+        
+        var connectionString = "Server=localhost\\SQLEXPRESS03;Database=PortfolioDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+        
+        builder.Services.AddCors(options => {
+            options.AddPolicy("OpenCorsPolicy", policy => {
+                policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
+        });
         
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         
+        
         var app = builder.Build();
         
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
-        // Forceer de applicatie om op jouw specifieke poort te luisteren (http://localhost:5050)
+        app.UseCors("OpenCorsPolicy");
+        
+        app.UseSwagger();
+        app.UseSwaggerUI();
+        
         app.Urls.Add("http://localhost:5050");
-        Console.WriteLine("http://localhost:5050/api/student");
-        Console.WriteLine("http://localhost:5050/api/user");
-        Console.WriteLine("http://localhost:5050/api/character");
+        Console.WriteLine("http://localhost:5050/api/projecten");
         Console.WriteLine("http://localhost:5050/swagger");
-        // 4. ACTIVEER CONTROLLERS: Zorg dat de routes naar je controllers werken
+        
         app.MapControllers();
         app.UseHttpsRedirection();
         app.Run();
