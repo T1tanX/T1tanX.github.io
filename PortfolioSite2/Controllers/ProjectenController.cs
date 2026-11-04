@@ -50,7 +50,7 @@ public class ProjectenController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult<ProjectDto>> PostProject(ProjectDto dto) {
+    public async Task<ActionResult> PostProject(ProjectDto dto) {
         var project = new Project {
             Titel = dto.Titel,
             Beschrijving = dto.Beschrijving,
