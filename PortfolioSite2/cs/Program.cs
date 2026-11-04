@@ -32,6 +32,7 @@ class Program {
         
         app.Urls.Add("http://localhost:5050");
         Console.WriteLine("http://localhost:5050/api/projecten");
+        Console.WriteLine("http://localhost:5050/api/blog");
         Console.WriteLine("http://localhost:5050/swagger");
         
         app.MapControllers();

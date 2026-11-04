@@ -18,7 +18,6 @@
       <Folder Include="Areas\projecten\Data\" />
       <Folder Include="Areas\projecten\Models\" />
       <Folder Include="Areas\projecten\Views\" />
-      <Folder Include="Controllers\" />
     </ItemGroup>
 
 </Project>
