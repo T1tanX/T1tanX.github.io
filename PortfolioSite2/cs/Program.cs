@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
+using PortfolioSite2.Services;
 
 class Program {
     static void Main(string[] args) {
@@ -21,6 +22,7 @@ class Program {
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddScoped<ProjectenService>();
         
         
         var app = builder.Build();

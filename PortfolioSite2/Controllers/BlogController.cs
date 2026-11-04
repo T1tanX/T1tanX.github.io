@@ -25,6 +25,17 @@ public class BlogController : ControllerBase{
         
         return Ok(blog);
     }
+    
+    [HttpGet("{id}")]
+    public async Task<ActionResult> GetOneBlog(int id) {
+        var blog = await _context.Blogs.FirstOrDefaultAsync(bl => bl.Id == id);
+
+        if (blog == null) {
+            return NotFound(new {message = "Blog id not found"});
+        }
+        
+        return Ok(blog);
+    }
 
     [HttpPost]
     public async Task<ActionResult> AddBlog([FromBody] BlogDto b) {
