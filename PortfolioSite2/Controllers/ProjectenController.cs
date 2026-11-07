@@ -30,7 +30,7 @@ public class ProjectenController : ControllerBase {
     }
 
     [HttpPost]
-    public async Task<ActionResult> PostProject(ProjectDto dto) {
+    public async Task<ActionResult> PostProject(ProjectInputDto dto) {
         return Ok(new {message = await _projectService.PostP(dto)});
     }
     

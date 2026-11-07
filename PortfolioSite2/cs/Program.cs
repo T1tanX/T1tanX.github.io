@@ -8,7 +8,8 @@ class Program {
     static void Main(string[] args) {
         var builder = WebApplication.CreateBuilder(args);
         
-        var connectionString = "Server=localhost\\SQLEXPRESS03;Database=PortfolioDB;Trusted_Connection=True;TrustServerCertificate=True;";
+        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
         builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
         
         builder.Services.AddCors(options => {
@@ -22,6 +23,7 @@ class Program {
         builder.Services.AddControllers();
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddScoped<BlogService>();
         builder.Services.AddScoped<ProjectenService>();
         
         

@@ -44,7 +44,7 @@ public class ProjectenService {
     }
 
     
-    public async Task<string> PostP(ProjectDto dto) {
+    public async Task<string> PostP(ProjectInputDto dto) {
         var project = new Project {
             Titel = dto.Titel,
             Beschrijving = dto.Beschrijving,

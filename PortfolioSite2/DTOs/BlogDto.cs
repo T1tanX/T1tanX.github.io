@@ -6,3 +6,10 @@ public class BlogDto {
     public DateTime Datum { get; set; }
     public string Inhoud { get; set; }
 }
+
+public class BlogInputDto {
+    public string Titel { get; set; } 
+    public DateTime Datum { get; set; }
+    public string Inhoud { get; set; }
+}
+
