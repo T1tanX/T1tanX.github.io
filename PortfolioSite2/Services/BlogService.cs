@@ -52,8 +52,8 @@ public class BlogService {
     }
     
     
-    public async Task<bool> UpdateB(int id, BlogDto dto) {
-        var searchedBlog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+    public async Task<bool> UpdateB(int id, BlogInputDto dto) {
+        var searchedBlog = await _context.Blogs.FindAsync(id);
         if (searchedBlog == null) {
             return false;
         }
@@ -67,7 +67,7 @@ public class BlogService {
     }
 
     public async Task<bool> DeleteB(int id) {
-        var searchedblog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+        var searchedblog = await _context.Blogs.FindAsync(id);
         if (searchedblog == null) {
             return false;
         }

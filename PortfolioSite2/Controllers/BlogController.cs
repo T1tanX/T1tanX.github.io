@@ -33,14 +33,14 @@ public class BlogController : ControllerBase{
     }
 
     [HttpPost]
-    public async Task<ActionResult> AddBlog(BlogInputDto b) {
+    public async Task<IActionResult> AddBlog(BlogInputDto b) {
         await _context.PostB(b);
         
         return Ok(new {message = "Blog added successfully"});
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateBlog(int id, BlogDto b) {
+    public async Task<IActionResult> UpdateBlog(int id, BlogInputDto b) {
         var success = await _context.UpdateB(id, b);
 
         if (!success) {
@@ -51,7 +51,7 @@ public class BlogController : ControllerBase{
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteBlog(int id) {
+    public async Task<IActionResult> DeleteBlog(int id) {
         var findblog = await _context.DeleteB(id);
         
         if(!findblog)

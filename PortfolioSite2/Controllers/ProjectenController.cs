@@ -35,7 +35,7 @@ public class ProjectenController : ControllerBase {
     }
     
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutProject(int id, ProjectDto dto) {
+    public async Task<IActionResult> PutProject(int id, ProjectInputDto dto) {
         var success = await _projectService.UpdateP(id, dto);
         if (!success) {
             return NotFound();

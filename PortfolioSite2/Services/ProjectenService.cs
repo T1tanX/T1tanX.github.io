@@ -60,7 +60,7 @@ public class ProjectenService {
     }
     
     
-    public async Task<bool> UpdateP(int id, ProjectDto dto) {
+    public async Task<bool> UpdateP(int id, ProjectInputDto dto) {
         var project = await _context.Projects.FindAsync(id);
         if (project == null) return false;
 
@@ -75,7 +75,7 @@ public class ProjectenService {
     }
 
     public async Task<bool> DeleteP(int id) {
-        var project = await _context.Projects.FirstOrDefaultAsync(p => p.Id == id);
+        var project = await _context.Projects.FindAsync(id);
         if (project == null) {
             return false;
         }
