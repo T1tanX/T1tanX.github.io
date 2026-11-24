@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PortfolioSite2.Models;
 using PortfolioSite2.DTOs;
 using PortfolioSite2.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PortfolioSite2.Controllers;
 
@@ -31,14 +32,16 @@ public class BlogController : ControllerBase{
         
         return Ok(b);
     }
-
+    
+    [Authorize(Roles = "Admin, Editor")]
     [HttpPost]
     public async Task<IActionResult> AddBlog(BlogInputDto b) {
         await _context.PostB(b);
         
         return Ok(new {message = "Blog added successfully"});
     }
-
+    
+    [Authorize(Roles = "Admin,Editor")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateBlog(int id, BlogInputDto b) {
         var success = await _context.UpdateB(id, b);
@@ -49,7 +52,8 @@ public class BlogController : ControllerBase{
         
         return Ok(new {message = "Blog updated successfully"});
     }
-
+    
+    [Authorize(Roles = "Admin")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteBlog(int id) {
         var findblog = await _context.DeleteB(id);

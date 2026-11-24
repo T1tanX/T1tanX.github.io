@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PortfolioSite2.DTOs;
 using PortfolioSite2.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PortfolioSite2.Controllers;
 
@@ -28,12 +29,14 @@ public class ProjectenController : ControllerBase {
         }
         return Ok(dto);
     }
-
+    
+    [Authorize(Roles = "Admin,Editor")]
     [HttpPost]
     public async Task<ActionResult> PostProject(ProjectInputDto dto) {
         return Ok(new {message = await _projectService.PostP(dto)});
     }
     
+    [Authorize(Roles = "Admin,Editor")]
     [HttpPut("{id}")]
     public async Task<IActionResult> PutProject(int id, ProjectInputDto dto) {
         var success = await _projectService.UpdateP(id, dto);
@@ -42,7 +45,8 @@ public class ProjectenController : ControllerBase {
         }
         return NoContent();
     }
-
+    
+    [Authorize(Roles = "Admin,Editor")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteProject(int id) {
         var success = await _projectService.DeleteP(id);
