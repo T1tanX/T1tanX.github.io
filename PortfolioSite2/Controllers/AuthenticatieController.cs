@@ -93,4 +93,24 @@ public class AuthenticatieController : ControllerBase {
         return Ok(new { message = "Gebruiker is succesvol verwijderd." });
 
     }
+
+    [HttpPut("{username}/{huidigeRol}/{nieuweRol}")]
+    public async Task<IActionResult> ChangeRole(string username, string huidigeRol, string nieuweRol) {
+        string[] Rollen = ["Gast", "Editor", "Admin"];
+        var user = await _userManager.FindByNameAsync(username);
+        if (user == null) {
+            return NotFound(new { message = "Gebruiker niet gevonden" });
+        }
+
+        if (!Rollen.Contains(huidigeRol) || !Rollen.Contains(nieuweRol)) {
+            return NotFound(new { message = "Rol niet gevonden" });
+        }
+
+        await _userManager.RemoveFromRoleAsync(user, huidigeRol);
+        await _userManager.AddToRoleAsync(user, nieuweRol);
+
+        return Ok(new { message = $"Rol '{huidigeRol}' gewijzigd naar '{nieuweRol}'." });
+
+
+    }
 }
