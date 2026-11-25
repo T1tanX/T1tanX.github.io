@@ -107,7 +107,7 @@ public class BlogTests {
         var updatedBlog = await service.UpdateB(8, updateInhoud);
         
         //Assert
-        var blog = await dbContext.Blogs.FindAsync(8);
+        var blog = await service.GetOneB(8);
         Assert.True(updatedBlog);
         Assert.NotNull(blog);
         Assert.Equal("Test8", blog.Titel);
